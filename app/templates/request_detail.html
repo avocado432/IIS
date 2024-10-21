@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Details of request</h1>
+    Creation date: {{ request.creation_date }}<br>
+    Deadline: {{ request.deadline }}<br>
+    Is completed: {{ request.is_done}}<br>
+    Vehicle: {{request.vehicle.name}}<br>
+    <h1>Maintenance records:</h1>
+    <div>
+        <a href="{{ url_for('add_maintenancerecord', request_id = request.id) }}">Add Maintenance Record</a>
+    </div>
+
+    {%if records %}
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Author</th>
+        </tr>
+        {% for record in records %}
+        <tr>
+            <td>{{ record.date }}</td>
+            <td>{{ record.status }}</td>
+            <td>{{ record.author.name }}</td>
+            <td><a href="{{ url_for('delete_record', request_id = request.id, record_id = record.id) }}" onclick="return confirm('Do you want to permanently delete maintenance record {{record.id}}?');"><button>Delete</button></a> </td>        
+        </tr>
+        {% endfor %}
+    </table>
+    {%else%}
+        <p>No records</p>
+    {%endif%}
+{% endblock %}

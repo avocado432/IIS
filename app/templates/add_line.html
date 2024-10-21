@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Line</h1>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.num.label }}<br>
+            {{ form.num(size=32) }}
+        </p>
+        <p>
+            {{ form.duration.label }}<br>
+            {{ form.duration(size=32) }}
+        </p>
+        <p>
+            {{ form.stops.label }}<br>
+            {{ form.stops(size=32) }}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}

@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0067)https://www.fit.vutbr.cz/study/courses/IIS/private/projekt/doc.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF8">
+    
+    <title>Projekt IIS</title>
+    <style type="text/css">
+    	table { border-collapse: collapse; }
+    	td, th { border: 1px solid black; padding: 0.3em 0.5em; text-align: left; }
+    	dt { font-weight: bold; margin-top: 0.5em; }
+    </style>
+</head>
+<body>
+
+<!-- Zkontrolujte pros�m nastaven� k�dov�n� v hlavi�ce dokumentu 
+     podle pou�it�ho editoru -->
+
+<h1>Dopravní podnik</h1> <!-- Nahradte n�zvem sv�ho zad�n� -->
+
+<dl>
+	<dt>Autoři</dt>
+	<dd>První jméno <!-- Nahra�te skute�n�m jm�nem a e-mailem autora a popisem �innosti -->
+	    <a href="mailto:xlapci03@stud.fit.vutbr.cz">xlapci03@stud.fit.vutbr.cz</a> -
+		vše od návrhů, přes databázi, zpracování dat až po zobrazování
+	</dd>
+	<dd>Druhé jméno <!-- Nahra�te skute�n�m jm�nem a e-mailem autora a popisem �innosti -->
+	    <a href="mailto:xotevr03@stud.fit.vutbr.cz">xotevr03@stud.fit.vutbr.cz</a> - 
+		nic
+	</dd>
+  	<dt>URL aplikace</dt>
+	<dd><a href="http://xlapci03.pythonanywhere.com">http://xlapci03.pythonanywhere.com</a></dd>
+</dl>
+
+<h2>Uživatelé systému pro testování</h2>
+<p>Uveďte prosím existující zástupce <strong>všech rolí uživatelů</strong>.</p>
+<table>
+<tbody><tr><th>Login</th><th>Heslo</th><th>Role</th></tr>
+<tr><td>admin@admin.cz</td><td>admin</td><td>Administrátor</td></tr>
+<tr><td>maintainer@maintainer.cz</td><td>maintainer</td><td>Správce</td></tr>
+<tr><td>technician@technician.cz</td><td>technician</td><td>Technik</td></tr>
+<tr><td>dispatcher@dispatcher.cz</td><td>dispatcher</td><td>Dispečer</td></tr>
+<tr><td>driver@driver.cz</td><td>driver</td><td>Řidič</td></tr>
+</tbody></table>
+
+<p>IS implementuje role a případy užití definované zadáním.</p> 
+
+<h3>Video</h3>
+
+<p>DOPLNIT!</p> 
+
+<h2>Implementace</h2>
+<p>Implementace je v jazyce python s pomocí mikroframeworku Flask.
+	Všechny případy užití jsou implementovány v souboru app/routes.py.
+</p>
+
+<h3>Databáze</h3>
+Databáze je typu MySQL. Pro samotnou práci jsem využila ORM Peewee.
+Inicializace databáze se provede python scriptem create_db.py.
+Databázové modely se nachází v souboru app/models.py
+
+<input type="image" id="image" alt="ERD" src="iis_er_diagram.png" />
+
+<h2>Instalace</h2>
+<h3>Instalace na server:</h3>
+<ul>
+	<li>Připojit se na webový portál pythonanywhere.com</li>
+	<li>Přes bash konzoli v portálu stáhnout git repozitář s projektem</li>
+	<li>Přes záložku web vytvořit webovou aplikaci a odkázat na soubory stáhnuté v předchozím kroku</li>
+	<li>Webová aplikace je přístupná</li>
+</ul>
+
+<h3>Softwarové požadavky</h3>
+Python 3.8, python knihovny napsané v souboru requirements.txt<br>
+
+<h3>Databáze</h3>
+Je nutné mít nainstalované MySQL. A příslušný MYSQL Driver pro python (je napsané v requirements) např. mysqlclient.<br>
+Veškeré ostatní kroky zajistí python script create_db.py. Stačí ho spusit pomocí python3 create_db.py
+
+<h2>Známé problémy</h2>
+<p>Z časových důvodů nebyla vyřešena editace vozidel, požadavků a záznamů o údržbě (jejich přidávání však funguje). Zobrazování závad správcem. Ukázkové video.
+</p>
+
+</body></html>

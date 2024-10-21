@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Requests:</h2>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Description</th>
+        <th>Creation date</th>
+        <th>Deadline</th>
+        <th>Is done?</th>
+        <th>Vehicle</th>
+    </tr>
+    {% for request in requests %}
+    <tr>
+        <td>{{ request.id }}</td>
+        <td>{{ request.description }}</td>
+        <td>{{ request.creation_date }}</td>
+        <td>{{ request.deadline }}</td>
+        <td>{{ request.is_done }}</td>
+        <td>{{ request.vehicle.username }}</td>
+        <td>
+            <a href="{{ url_for('add_maintenancerecord', request_id = request.id)}}"><button>Add maintenance record</button></a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

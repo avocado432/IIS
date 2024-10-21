@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Welcome on Main Page!</h1>
+
+    <table>
+        <tr>
+            <th>Line number</th>
+            <th>Time duration between stops (min)</th>
+        </tr>
+        {% for line in lines %}
+        <tr>
+            <td>{{ line.num }}</td>
+            <td>{{ line.duration }}</td>
+            <td>
+                <a href="{{ url_for('line_details', line_id = line.id) }}"><button>Details</button></a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+{% endblock %}

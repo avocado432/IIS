@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Vehicles:</h2>
+<div>
+    <a href="{{ url_for('add_vehicle') }}">Add Vehicle</a>
+</div>
+<table>
+    <tr>
+        <th>SPZ</th>
+        <th>Username</th>
+        <th>Type</th>
+        <th>Brand</th>
+        <th>Condition</th>
+    </tr>
+    {% for vehicle in vehicles %}
+    {% if vehicle.username != 'undefined' %}
+    <tr>
+        <td>{{ vehicle.spz }}</td>
+        <td>{{ vehicle.username }}</td>
+        <td>{{ vehicle.type }}</td>
+        <td>{{ vehicle.brand }}</td>
+        <td>{{ vehicle.condition }}</td>
+        <td><a href="{{ url_for('delete_vehicle', vehicle_id = vehicle.id) }}"><button>Delete</button></a></td>
+    </tr> 
+    {% endif %}
+    {% endfor %}
+</table>
+
+{% endblock %}

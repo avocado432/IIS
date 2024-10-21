@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Admin main page</h1>
+    <h1>Welcome, {{ user.name }}!</h1>
+    <div>
+        <a href="{{ url_for('manage_employees')}}">Employees</a>
+    </div>
+    <div>
+        <a href="{{ url_for('manage_lines') }}">Transport Lines</a>
+    </div>
+    <div>
+        <a href="{{ url_for('writeout_stops') }}">Stops</a>
+    </div>
+    <div>
+        <a href="{{ url_for('manage_vehicles') }}">Vehicles</a>
+    </div>
+    <div>
+        <a href="{{ url_for('manage_requests') }}">Requests</a>
+    </div>
+{% endblock %}

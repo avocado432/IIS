@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>User: {{ user.name }}</h1>
+    <p>Email: {{ user. email }}</p>
+    <p>Role: {{ user.role }}</p>
+    {% if user == current_user %}
+    <p><a href="{{ url_for('edit_own_profile') }}">Edit your profile</a></p>
+    {% endif %}
+{% endblock %}

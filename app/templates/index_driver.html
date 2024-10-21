@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Driver main page</h1>
+<h1>Welcome, {{ user.name }}!</h1>
+
+<h2>Connections:</h2>
+{%if connections %}
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Departure</th>
+            <th>Direction</th>
+            <th>Working days only</th>
+            <th>Vehicle</th>
+            <th>Driver</th>
+        </tr>
+        {% for connection in connections %}
+        <tr>
+            <td>{{ connection.id }}</td>
+            <td>{{ connection.departure }}</td>
+            <td>{{ connection.direction }}</td>
+            <td>{{ connection.only_working_days }}</td>
+            <td>{{ connection.vehicle.username }}</td>
+            <td>{{ connection.driver.name }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {%else%}
+        <p>No connections</p>
+    {%endif%}
+
+    <a href="{{url_for('add_defect')}}"><button>Report a defect</button></a>
+
+{% endblock %}

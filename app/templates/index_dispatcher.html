@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Dispatcher main page</h1>
+<h1>Welcome, {{ user.name }}!</h1>
+
+<h1>Lines:</h1>
+
+<table>
+    <tr>
+        <th>Line number</th>
+        <th>Time duration between stops (min)</th>
+    </tr>
+    {% for line in lines %}
+    <tr>
+        <td>{{ line.num }}</td>
+        <td>{{ line.duration }}</td>
+        <td>
+            <a href="{{ url_for('line_details', line_id = line.id, user = user) }}"><button>Details</button></a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Add Request</h1>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.description.label }}<br>
+            {{ form.description(size=32) }}
+        </p>
+        <p>
+            {{ form.deadline.label }}<br>
+            {{ form.deadline(size=32) }}
+        </p>
+        <p>
+            {{ form.is_done.label }}<br>
+            {{ form.is_done(size=32) }}
+        </p>
+        <p>
+            {{ form.vehicle_username.label }}<br>
+            {{ form.vehicle_username(list="vehicle_list") }}
+        </p>
+        <datalist id="vehicle_list">
+            {%for vehicle in vehicles%}
+                <option value="{{vehicle}}" >{{vehicle}}</option>
+            {%endfor%}
+        </datalist>
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}

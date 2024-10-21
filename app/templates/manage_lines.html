@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+    <a href="{{ url_for('add_line') }}">Add Line</a>
+</div>
+<table>
+    <tr>
+        <th>Line number</th>
+        <th>Time duration between stops (min)</th>
+    </tr>
+    {% for line in lines %}
+    <tr>
+        <td>{{ line.num }}</td>
+        <td>{{ line.duration }}</td>
+        <td>
+            <a href="{{ url_for('line_details', line_id = line.id, user = user) }}"><button>Details</button></a>
+            <a href="{{ url_for('edit_line', line_id = line.id) }}"><button>Edit</button></a>
+            <a href="{{ url_for('delete_line', line_id = line.id) }}"><button>Delete</button></a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
